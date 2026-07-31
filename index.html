@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arc the Story — Proposal Showcase</title>
+  
+  <!-- High-end serif & sans-serif fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Swiper Carousel CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+
+/* Custom Font Declarations from Local Assets */
+@font-face {
+  font-family: 'IvyPresto Display';
+  src: url('assets/fonts/IvyPrestoDisplay-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IvyPresto Display';
+  src: url('assets/fonts/IvyPrestoDisplay-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IvyPresto Display';
+  src: url('assets/fonts/IvyPrestoDisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AWConqueror Std Sans';
+  src: url('assets/fonts/AWConquerorStdSans-Light.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CSS Variables */
+:root {
+  --bg-main: #F4EEE4;
+  --bg-card: #FFFFFF;
+  --text-dark: #111111;
+  --text-muted: #8C7B6B;
+  --overlay-bg: rgba(17, 17, 17, 0.55);
+
+  --font-serif: 'IvyPresto Display', Georgia, serif;
+  --font-sans: 'AWConqueror Std Sans', -apple-system, sans-serif;
+}
+
+    /* ==========================================================================
+       1. Design Tokens & CSS Variables
+       ========================================================================== */
+    :root {
+      --bg-main: #F4EEE4;       /* Warm linen background from design sample */
+      --bg-card: #FFFFFF;       /* Solid white card background */
+      --text-dark: #111111;     /* Primary dark text */
+      --text-muted: #8C7B6B;    /* Muted warm brown for details */
+      --overlay-bg: rgba(17, 17, 17, 0.55);
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Global CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-dark);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      padding: 3rem 2.5rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1380px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       2. Top Brand Header (Boxed Logo)
+       ========================================================================== */
+    .top-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .logo-box {
+      border: 2px solid var(--text-dark);
+      padding: 0.4rem 0.65rem;
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 0.85;
+      text-transform: uppercase;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      background: transparent;
+    }
+
+    .logo-box .row-top { font-size: 1.15rem; }
+    .logo-box .row-top i {
+      font-style: italic;
+      font-weight: 400;
+      text-transform: lowercase;
+      margin: 0 2px;
+    }
+    .logo-box .row-bottom { font-size: 1.15rem; }
+
+    /* ==========================================================================
+       3. Main 4-Column Layout Grid
+       ========================================================================== */
+    .main-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    /* CRITICAL FIX: Ensures Grid items do not expand infinitely when Swiper scales */
+    .main-grid > * {
+      min-width: 0;
+    }
+
+    /* ==========================================================================
+       4. Card Component Styling
+       ========================================================================== */
+    .edit-card {
+      background-color: var(--bg-card);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0; /* Prevents flex overflow */
+      height: 100%;
+    }
+
+    /* Full-bleed image wrapper inside card */
+    .edit-image {
+      position: relative;
+      margin: -1.5rem -1.5rem 1.25rem -1.5rem;
+      width: calc(100% + 3rem);
+      aspect-ratio: 4 / 5; /* Locks image aspect ratio tightly */
+      background-color: #EAE3D7;
+      overflow: hidden;
+    }
+
+    .edit-swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .edit-swiper .swiper-slide {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #EAE3D7;
+    }
+
+    .edit-swiper .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Swiper Circular Navigation Controls */
+    .edit-image .swiper-button-next,
+    .edit-image .swiper-button-prev {
+      color: var(--text-dark);
+      background: #FFFFFF;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      top: 50%;
+      margin-top: -15px;
+    }
+
+    .edit-image .swiper-button-prev { left: 10px; }
+    .edit-image .swiper-button-next { right: 10px; }
+
+    .edit-image .swiper-button-next::after,
+    .edit-image .swiper-button-prev::after {
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    .edit-swiper .swiper-pagination-bullet {
+      background: var(--text-dark);
+      opacity: 0.35;
+    }
+
+    .edit-swiper .swiper-pagination-bullet-active {
+      background: var(--text-dark);
+      opacity: 1;
+    }
+
+    /* Typography inside Edit Cards */
+    .edit-title {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    .edit-desc {
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--text-dark);
+      margin-bottom: 1.25rem;
+      font-weight: 400;
+    }
+
+    .edit-details {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .edit-dimensions {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .edit-price {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Buttons */
+    .btn-select {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--text-dark);
+      color: #FFFFFF;
+      padding: 0.9rem 1rem;
+      width: 100%;
+      border: 1px solid var(--text-dark);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      margin-bottom: 0.75rem;
+    }
+
+    .btn-select:hover {
+      background-color: #333333;
+    }
+
+    .btn-select .btn-arrow {
+      transition: transform 0.2s ease;
+    }
+
+    .btn-select:hover .btn-arrow {
+      transform: translateX(3px);
+    }
+
+    .link-customize {
+      display: block;
+      text-align: center;
+      color: var(--text-dark);
+      font-size: 0.78rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 100%;
+    }
+
+    .link-customize:hover {
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       5. Column 4: Artwork Info Block (Sans Form)
+       ========================================================================== */
+    .info-column {
+      padding-top: 0.25rem;
+    }
+
+    .info-column .artwork-title {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 600;
+      line-height: 1.05;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .info-column .artwork-subtitle {
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .info-column .customer-ref {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       6. Lightweight Modal Popup Dialog
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--overlay-bg);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 2000;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      background: #FFFFFF;
+      border: 1px solid var(--text-dark);
+      padding: 4rem 3rem 3.5rem;
+      max-width: 460px;
+      width: 100%;
+      position: relative;
+      text-align: center;
+      transform: translateY(12px);
+      transition: transform 0.3s ease;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .modal-overlay.is-open .modal-box {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: var(--text-dark);
+    }
+
+    .modal-message {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      line-height: 1.6;
+      color: var(--text-dark);
+      white-space: pre-line;
+      font-weight: 400;
+    }
+
+    /* ==========================================================================
+       7. Responsive Layout Adjustments
+       ========================================================================== */
+    @media (max-width: 1100px) {
+      .main-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      .info-column {
+        grid-column: 1 / -1;
+        order: -1; /* Place title at top on tablet/mobile screens */
+        margin-bottom: 1rem;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+      body {
+        padding: 2rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Top Bar Header: Boxed Logo -->
+    <header class="top-header">
+      <img src="assets/images/logo.png" alt="ARC the STORY" class="logo" style="max-width: 130px; height: auto; display: block;">
+    </header>
+
+    <!-- Main 4-Column Layout Grid -->
+    <main class="main-grid">
+      
+      <!-- Column 1: Edit 1 (The Collector) -->
+      <article class="edit-card">
+        <div>
+          <div class="edit-image">
+            <div class="swiper edit-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="https://picsum.photos/id/1062/600/750" alt="The Collector Mockup 1">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://picsum.photos/id/1069/600/750" alt="The Collector Mockup 2">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+          
+          <h2 class="edit-title">The Collector</h2>
+          <p class="edit-desc">Warm, organic, timeless. The look of a private collection, as if it has always been yours.</p>
+          <p class="edit-details">| Dark Oak | | Classic Ivory Sand</p>
+          <p class="edit-dimensions">(56 x 41 cm)</p>
+        </div>
+
+        <div>
+          <p class="edit-price">€145</p>
+          <button type="button" class="btn-select js-modal-trigger">
+            <span>Ja, deze</span>
+            <span class="btn-arrow">→</span>
+          </button>
+          <button type="button" class="link-customize js-modal-trigger">Ik wil iets aanpassen →</button>
+        </div>
+      </article>
+
+      <!-- Column 2: Edit 2 (The Modernist) -->
+      <article class="edit-card">
+        <div>
+          <div class="edit-image">
+            <div class="swiper edit-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="https://picsum.photos/id/1069/600/750" alt="The Modernist Mockup 1">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://picsum.photos/id/1062/600/750" alt="The Modernist Mockup 2">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+          
+          <h2 class="edit-title">The Modernist</h2>
+          <p class="edit-desc">Sleek and museum-quality. The black line of the frame enhances the power of the drawing without overpowering it.</p>
+          <p class="edit-details">| Carbon Black | | Linen Soft White</p>
+          <p class="edit-dimensions">(64 x 46 cm)</p>
+        </div>
+
+        <div>
+          <p class="edit-price">€150</p>
+          <button type="button" class="btn-select js-modal-trigger">
+            <span>Ja, deze</span>
+            <span class="btn-arrow">→</span>
+          </button>
+          <button type="button" class="link-customize js-modal-trigger">Ik wil iets aanpassen →</button>
+        </div>
+      </article>
+
+      <!-- Column 3: Edit 3 (The Statement) -->
+      <article class="edit-card">
+        <div>
+          <div class="edit-image">
+            <div class="swiper edit-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="https://picsum.photos/id/1025/600/750" alt="The Statement Mockup 1">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://picsum.photos/id/1069/600/750" alt="The Statement Mockup 2">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+          
+          <h2 class="edit-title">The Statement</h2>
+          <p class="edit-desc">Gilded rim for a touch of drama. A striking addition designed to draw attention.</p>
+          <p class="edit-details">| The Duke | | Linen Soft White</p>
+          <p class="edit-dimensions">(60 x 44 cm)</p>
+        </div>
+
+        <div>
+          <p class="edit-price">€150</p>
+          <button type="button" class="btn-select js-modal-trigger">
+            <span>Ja, deze</span>
+            <span class="btn-arrow">→</span>
+          </button>
+          <button type="button" class="link-customize js-modal-trigger">Ik wil iets aanpassen →</button>
+        </div>
+      </article>
+
+      <!-- Column 4: Header Title Info Block -->
+      <div class="info-column">
+        <h1 class="artwork-title">Picasso</h1>
+        <p class="artwork-subtitle">We've kept it simple. Three ways this works. Choose what is right.</p>
+        <p class="customer-ref">For: Smith (Ref: 1024)</p>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Reusable Modal Popup Overlay -->
+  <div class="modal-overlay" id="popupModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+      
+      <!-- Required Dutch Modal Text -->
+      <p class="modal-message">Dit is een voorbeeld van wat we doen.
+
+Elk stuk wordt met evenveel zorg gemaakt.</p>
+    </div>
+  </div>
+
+  <!-- Swiper External JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    // Initialize Swiper carousels and modal logic after DOM content loads
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      /* Initialize Swiper for each Edit card */
+      document.querySelectorAll('.edit-card').forEach(cardEl => {
+        const swiperEl = cardEl.querySelector('.edit-swiper');
+        if (!swiperEl) return;
+
+        new Swiper(swiperEl, {
+          loop: true,
+          spaceBetween: 0,
+          pagination: {
+            el: cardEl.querySelector('.swiper-pagination'),
+            clickable: true,
+          },
+          navigation: {
+            nextEl: cardEl.querySelector('.swiper-button-next'),
+            prevEl: cardEl.querySelector('.swiper-button-prev'),
+          },
+        });
+      });
+
+      /* Reusable Modal interactions */
+      const modal = document.getElementById('popupModal');
+      const closeButton = document.getElementById('modalClose');
+      const modalTriggers = document.querySelectorAll('.js-modal-trigger');
+
+      const openModal = () => {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeModal = () => {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal();
+        });
+      });
+
+      closeButton.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+
+    });
+  </script>
+</body>
+</html>
