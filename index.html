@@ -219,14 +219,15 @@
       font-size: 0.88rem;
       line-height: 1.45;
       color: var(--text-dark);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
       font-weight: 400;
+      min-height: 2.6em;
     }
 
     .edit-details {
       font-size: 0.8rem;
       color: var(--text-muted);
-      margin-bottom: 0.25rem;
+      margin-bottom: 1.5rem;
     }
 
     .edit-dimensions {
@@ -424,17 +425,17 @@
     <!-- Main 4-Column Layout Grid -->
     <main class="main-grid">
       
-      <!-- Column 1: Edit 1 (The Collector) -->
+      <!-- Column 1: Edit 1 (The Gallery Edit) -->
       <article class="edit-card">
         <div>
           <div class="edit-image">
             <div class="swiper edit-swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <img src="https://picsum.photos/id/1062/600/750" alt="The Collector Mockup 1">
+                  <img src="assets/images/gallery-1.jpg" alt="The Gallery Edit - View 1">
                 </div>
                 <div class="swiper-slide">
-                  <img src="https://picsum.photos/id/1069/600/750" alt="The Collector Mockup 2">
+                  <img src="assets/images/gallery-2.jpg" alt="The Gallery Edit - View 2">
                 </div>
               </div>
               <div class="swiper-pagination"></div>
@@ -443,14 +444,12 @@
             <div class="swiper-button-next"></div>
           </div>
           
-          <h2 class="edit-title">The Collector</h2>
-          <p class="edit-desc">Warm, organic, timeless. The look of a private collection, as if it has always been yours.</p>
-          <p class="edit-details">| Dark Oak | | Classic Ivory Sand</p>
-          <p class="edit-dimensions">(56 x 41 cm)</p>
+          <h2 class="edit-title">The Gallery Edit</h2>
+          <p class="edit-desc">Strak, koel, precies zoals een erkenning zich voelt vlak nadat die binnenkomt.</p>
+          <p class="edit-details">Carbon Black | Ivory Sand | Light Blue | Floating</p>
         </div>
 
         <div>
-          <p class="edit-price">€145</p>
           <button type="button" class="btn-select js-modal-trigger">
             <span>Ja, deze</span>
             <span class="btn-arrow">→</span>
@@ -459,17 +458,17 @@
         </div>
       </article>
 
-      <!-- Column 2: Edit 2 (The Modernist) -->
+      <!-- Column 2: Edit 2 (The Linen Edit) -->
       <article class="edit-card">
         <div>
           <div class="edit-image">
             <div class="swiper edit-swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <img src="https://picsum.photos/id/1069/600/750" alt="The Modernist Mockup 1">
+                  <img src="assets/images/linen-1.jpg" alt="The Linen Edit - View 1">
                 </div>
                 <div class="swiper-slide">
-                  <img src="https://picsum.photos/id/1062/600/750" alt="The Modernist Mockup 2">
+                  <img src="assets/images/linen-2.jpg" alt="The Linen Edit - View 2">
                 </div>
               </div>
               <div class="swiper-pagination"></div>
@@ -478,14 +477,12 @@
             <div class="swiper-button-next"></div>
           </div>
           
-          <h2 class="edit-title">The Modernist</h2>
-          <p class="edit-desc">Sleek and museum-quality. The black line of the frame enhances the power of the drawing without overpowering it.</p>
-          <p class="edit-details">| Carbon Black | | Linen Soft White</p>
-          <p class="edit-dimensions">(64 x 46 cm)</p>
+          <h2 class="edit-title">The Linen Edit</h2>
+          <p class="edit-desc">Warme linnen textuur en donker hout. Niet nieuw. Alleen eindelijk zichtbaar.</p>
+          <p class="edit-details">Dark Oak | Linen No. 3 - Raw Linen | Floating</p>
         </div>
 
         <div>
-          <p class="edit-price">€150</p>
           <button type="button" class="btn-select js-modal-trigger">
             <span>Ja, deze</span>
             <span class="btn-arrow">→</span>
@@ -494,17 +491,17 @@
         </div>
       </article>
 
-      <!-- Column 3: Edit 3 (The Statement) -->
+      <!-- Column 3: Edit 3 (The Statement Edit) -->
       <article class="edit-card">
         <div>
           <div class="edit-image">
             <div class="swiper edit-swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <img src="https://picsum.photos/id/1025/600/750" alt="The Statement Mockup 1">
+                  <img src="assets/images/statement-1.jpg" alt="The Statement Edit - View 1">
                 </div>
                 <div class="swiper-slide">
-                  <img src="https://picsum.photos/id/1069/600/750" alt="The Statement Mockup 2">
+                  <img src="assets/images/statement-2.jpg" alt="The Statement Edit - View 2">
                 </div>
               </div>
               <div class="swiper-pagination"></div>
@@ -513,14 +510,12 @@
             <div class="swiper-button-next"></div>
           </div>
           
-          <h2 class="edit-title">The Statement</h2>
-          <p class="edit-desc">Gilded rim for a touch of drama. A striking addition designed to draw attention.</p>
-          <p class="edit-details">| The Duke | | Linen Soft White</p>
-          <p class="edit-dimensions">(60 x 44 cm)</p>
+          <h2 class="edit-title">The Statement Edit</h2>
+          <p class="edit-desc">Geen understatement, terecht.</p>
+          <p class="edit-details">Glossy Merlot | Plum Velvet | Ivory Sand</p>
         </div>
 
         <div>
-          <p class="edit-price">€150</p>
           <button type="button" class="btn-select js-modal-trigger">
             <span>Ja, deze</span>
             <span class="btn-arrow">→</span>
@@ -532,8 +527,8 @@
       <!-- Column 4: Header Title Info Block -->
       <div class="info-column">
         <h1 class="artwork-title">Picasso</h1>
-        <p class="artwork-subtitle">We've kept it simple. Three ways this works. Choose what is right.</p>
-        <p class="customer-ref">For: Smith (Ref: 1024)</p>
+        <p class="artwork-subtitle">En daar was Forbes</p>
+        <p class="customer-ref">For: Britt & Tess (Ref: 1024)</p>
       </div>
 
     </main>
